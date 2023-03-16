@@ -1,0 +1,19 @@
+.background-scientist{
+  background: url("images/image_accueil.jpg") no-repeat;
+  height: 100vh;
+  filter: blur(10px) brightness(80%);
+}
+
+.logo-text{
+  position: absolute;
+  text-align: center;
+  padding-top: 5vh;
+}
+
+body{
+  background-color: #708FCD;
+}
+
+.a{
+  filter: blur(0PX);
+}
