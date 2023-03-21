@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 16 mars 2023 à 10:00
+-- Généré le : mar. 21 mars 2023 à 08:53
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -43,6 +43,19 @@ CREATE TABLE IF NOT EXISTS `activite` (
 INSERT INTO `activite` (`id_activite`, `nom_activite`, `description_activite`, `horodate_activite`) VALUES
 (1, 'Conférence Yves-Gontran', 'Le scientifique Yves-Gontran donne une conférence sur l\'impacte des effets placébos sur l\'avenir des étudiants Français.', '14/09/2023 14:00'),
 (2, 'Débat sur d\'Archibald Plafond', 'Les déclarations d\'Archibald Plafond sur la situation des pharmaciens ont fais scandales dans toutes la France, venez vous exprimer sur le sujet.', '08/07/2023 21:30');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `inscriptions`
+--
+
+DROP TABLE IF EXISTS `inscriptions`;
+CREATE TABLE IF NOT EXISTS `inscriptions` (
+  `nom` varchar(30) NOT NULL,
+  `prenom` varchar(30) NOT NULL,
+  `mail` varchar(80) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

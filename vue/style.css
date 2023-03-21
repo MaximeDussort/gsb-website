@@ -10,10 +10,38 @@
   padding-top: 5vh;
 }
 
+.no-point{
+  list-style: none;
+}
+
 body{
   background-color: #708FCD;
 }
+nav{
+  padding-top: 2vh;
+  justify-content: space-between;
+}
 
-.a{
-  filter: blur(0PX);
+nav li{
+  display: inline;
+}
+
+nav a{
+  text-decoration: none;
+  color: white;
+  background-color: #123E6A;
+  border-radius: 5px;
+  padding: 7px 5px;
+}
+
+nav a:hover{
+  color: #123E6A;
+  background-color: white;
+}
+
+table, th, td {
+  background-color: #708FCD;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
 }

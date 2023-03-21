@@ -9,5 +9,7 @@
      // lancement du bon contrôleur
      if ( !isset($_GET["action"]) ){
         chargementVuePrincipale();
+     }else if( $_GET["action"] == 'LiMed'){
+         chargementVueMedocs();
      };
 ?>
