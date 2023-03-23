@@ -1,7 +1,8 @@
 .background-scientist{
   background: url("images/image_accueil.jpg") no-repeat;
-  height: 100vh;
-  filter: blur(10px) brightness(80%);
+  height: 90vh;
+  
+  filter: blur(10px) brightness(60%);
 }
 
 .logo-text{
@@ -44,4 +45,20 @@ table, th, td {
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
+  padding: 1vh;
+}
+
+.imgtab{
+  width: 30vh;
+}
+
+footer {
+  display: block;
+  text-align: start;
+  padding: 1vh;
+  border: black 2px solid;
+  border-bottom: 0px solid;
+  margin-top: 3vh;
+  background-color: #708FCD;
+  color: #fff;
 }

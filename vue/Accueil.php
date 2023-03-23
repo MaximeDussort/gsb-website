@@ -13,8 +13,8 @@
                 <nav>
                     <ul class="no-point">
                         <li><strong><a href="index.php?action=LiMed">Liste&nbspdes&nbspmédicaments</a></strong></li>
-                        <li><strong><a href="">Liste&nbspdes&nbspactivités</a></strong></li>
-                        <li><strong><a href="">Mentions&nbspjuridiques</a></strong></li>
+                        <li><strong><a href="index.php?action=LiAct">Liste&nbspdes&nbspactivités</a></strong></li>
+                        <li><strong><a href="index.php?action=MeJur">Mentions&nbspjuridiques</a></strong></li>
                     </ul>
                 </nav>
             </div>
@@ -32,6 +32,9 @@
                 <div style="background-color: rgba(0, 0, 0, .5);">
                     <p style="font-size:xx-large; color:lightgray;"><strong>Le laboratoire GSB (Galaxy Swiss Bourdin) est une industrie pharmaceutique spécialisée dans la recherche et production de nouvelles molécules et médicaments révolutionnaires.</strong></p>
                 </div>
+                <footer>
+                    <p>© Site web proposé par Maxime Dussort et Nicolas Kerpaal</p>
+                </footer>
             </div>
         </div>
     </div>

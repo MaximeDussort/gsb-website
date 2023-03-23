@@ -13,8 +13,8 @@
                 <nav>
                     <ul class="no-point">
                         <li><strong><a href="index.php?action=LiMed">Liste&nbspdes&nbspmédicaments</a></strong></li>
-                        <li><strong><a href="">Liste&nbspdes&nbspactivités</a></strong></li>
-                        <li><strong><a href="">Mentions&nbspjuridiques</a></strong></li>
+                        <li><strong><a href="index.php?action=LiAct">Liste&nbspdes&nbspactivités</a></strong></li>
+                        <li><strong><a href="index.php?action=MeJur">Mentions&nbspjuridiques</a></strong></li>
                     </ul>
                 </nav>
             </div>
@@ -30,19 +30,33 @@
                 <h1 style="color: white;"><strong>Liste des médicaments</strong></h1>
                 <br>
                 <table style="text-align: start;">
-                    <thead>
+                    <tr>
                         <th>Nom</th>
                         <th>Effets therapeutiques</th>
                         <th>Effets secondaires</th>
                         <th>Interactions entre medicaments</th>
                         <th>Image</th>
-                    </thead>
-                    <tbody>
+                    </tr>
+                    <tr>
                         <?php
-                        
+                            $bdMedocs = returnMedocs();
+                            foreach($bdMedocs as $unMedoc){
+                                $tab=array();
+                                for($i=0;$i<5;$i++){
+                                    $tab[$i] = explode(";", $unMedoc);
+                                }
                         ?>
-                    </tbody>
+                            <td><?php echo $tab[0][0]?></td>
+                            <td><?php echo $tab[0][1]?></td>
+                            <td><?php echo $tab[0][2]?></td>
+                            <td><?php echo $tab[0][3]?></td>
+                            <td><?php echo "<img src=" . $tab[0][4] . " class ='imgtab'>"?></td>
+                        <?php echo "</tr>";
+                    };?>
                 </table>
+                <footer>
+                    <p>© Site web proposé par Maxime Dussort et Nicolas Kerpaal</p>
+                </footer>
             </div>
         </div>
     </div>

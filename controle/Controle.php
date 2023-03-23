@@ -6,4 +6,12 @@
     function chargementVueMedocs(){
         require_once "vue/ListMedicament.php";
     }
+
+    function chargementVueActivite(){
+        require_once "vue/ListActivite.php";
+    }
+
+    function chargementVueMentionsJuridiques(){
+        require_once "vue/MentionsJuridiques.php";
+    }
 ?>

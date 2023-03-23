@@ -10,6 +10,10 @@
      if ( !isset($_GET["action"]) ){
         chargementVuePrincipale();
      }else if( $_GET["action"] == 'LiMed'){
-         chargementVueMedocs();
-     };
+        chargementVueMedocs();
+    }else if( $_GET["action"] == 'LiAct'){
+        chargementVueActivite();
+    }else if( $_GET["action"] == 'MeJur'){
+        chargementVueMentionsJuridiques();
+    };
 ?>

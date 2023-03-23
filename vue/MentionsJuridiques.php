@@ -27,32 +27,8 @@
                     <img src="vue/images/logo-gsb.png" alt="logo_gsb">
                 </a>
                 <br><br>
-                <h1 style="color: white;"><strong>Liste des activités</strong></h1>
+                <h1 style="color: white;"><strong>Mentions Juridiques</strong></h1>
                 <br>
-                <table style="text-align: start;">
-                    <tr>
-                        <th>Nom</th>
-                        <th>Description</th>
-                        <th>Date et Heure</th>
-                    </tr>
-                    <tr>
-                        <?php
-                            $bdActivite = returnActivites();
-                            foreach($bdActivite as $uneActivite){
-                                $tab=array();
-                                for($i=0;$i<5;$i++){
-                                    $tab[$i] = explode(";", $uneActivite);
-                                }
-                        ?>
-                            <td><?php echo $tab[0][1]?></td>
-                            <td><?php echo $tab[0][2]?></td>
-                            <td><?php echo $tab[0][3]?></td>
-                        <?php echo "</tr>";
-                    };?>
-                </table>
-                <footer>
-                    <p>© Site web proposé par Maxime Dussort et Nicolas Kerpaal</p>
-                </footer>
             </div>
         </div>
     </div>
