@@ -14,4 +14,12 @@
     function chargementVueMentionsJuridiques(){
         require_once "vue/MentionsJuridiques.php";
     }
+    
+    function chargementActionFormulaire(){
+        require_once "modele/ModeleFormulaire.php";
+    }
+    function ajoutInscription($nom, $prenom, $mail, $activite){
+        insertInscript($nom, $prenom, $mail, $activite);
+        require_once "vue/Accueil.php";
+    }
 ?>

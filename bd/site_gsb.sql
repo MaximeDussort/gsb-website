@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 23 mars 2023 à 06:09
+-- Généré le : jeu. 30 mars 2023 à 09:38
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `activite` (
   `nom_activite` varchar(50) NOT NULL,
   `description_activite` varchar(200) NOT NULL,
   `horodate_activite` varchar(20) NOT NULL,
+  `nombre_participations` int(11) NOT NULL,
   PRIMARY KEY (`id_activite`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -40,9 +41,9 @@ CREATE TABLE IF NOT EXISTS `activite` (
 -- Déchargement des données de la table `activite`
 --
 
-INSERT INTO `activite` (`id_activite`, `nom_activite`, `description_activite`, `horodate_activite`) VALUES
-(1, 'Conférence Yves-Gontran', 'Le scientifique Yves-Gontran donne une conférence sur l\'impacte des effets placébos sur l\'avenir des étudiants Français.', '14/09/2023 14:00'),
-(2, 'Débat sur d\'Archibald Plafond', 'Les déclarations d\'Archibald Plafond sur la situation des pharmaciens ont fais scandales dans toutes la France, venez vous exprimer sur le sujet.', '08/07/2023 21:30');
+INSERT INTO `activite` (`id_activite`, `nom_activite`, `description_activite`, `horodate_activite`, `nombre_participations`) VALUES
+(1, 'Conférence Yves-Gontran', 'Le scientifique Yves-Gontran donne une conférence sur l\'impacte des effets placébos sur l\'avenir des étudiants Français.', '14/09/2023 14:00', 15),
+(2, 'Débat sur d\'Archibald Plafond', 'Les déclarations d\'Archibald Plafond sur la situation des pharmaciens ont fais scandales dans toutes la France, venez vous exprimer sur le sujet.', '08/07/2023 21:30', 13);
 
 -- --------------------------------------------------------
 
@@ -54,8 +55,61 @@ DROP TABLE IF EXISTS `inscriptions`;
 CREATE TABLE IF NOT EXISTS `inscriptions` (
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
-  `mail` varchar(80) NOT NULL
+  `mail` varchar(80) NOT NULL,
+  `id_activite` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `inscriptions`
+--
+
+INSERT INTO `inscriptions` (`nom`, `prenom`, `mail`, `id_activite`) VALUES
+('Oui', 'Stiti', 'StitiOui@gmail.com', 1),
+('Poir', 'Alo', 'Alo.Poir@gmail.com', 1),
+('Pomme', 'Dapi', 'mak.sim@gmail.com', 2),
+('a', 'b', 'a.b@gmail.com', 1),
+('Oui', 'Stiti', 'StitiOui@gmail.com', 1),
+('Oui', 'Stiti', 'StitiOui@gmail.com', 1),
+('Oui', 'Stiti', 'StitiOui@gmail.com', 1),
+('Bouba', 'Lourson', 'potdemiel@gmiel.com', 2),
+('Bouba', 'Lourson', 'potdemiel@gmiel.com', 2),
+('Pain', 'Brioché', 'AAA@gmA.AA', 2),
+('Pain', 'Brioché', 'aaa@gma.aa', 2),
+('Pain', 'Brioché', 'aaa@gma.aa', 2),
+('aaa', 'ddadsqd', 'rzfeqd@gaf.ca', 2),
+('aaa', 'ddadsqd', 'rzfeqd@gaf.ca', 2),
+('aaa', 'ddadsqd', 'rzfeqd@gaf.ca', 2),
+('piano', 'belge', 'eqsd@fsd.ca', 1),
+('piano', 'belge', 'eqsd@fsd.ca', 1),
+('aaad', 'qsdsqd', 'sqfd@bril.ca', 2),
+('aaad', 'qsdsqd', 'sqfd@bril.ca', 2),
+('AAA', 'BBB', 'zqdsd@da.ca', 1),
+('AAA', 'BBB', 'zqdsd@da.ca', 1),
+('W', 'AAK', 'a@ga.cax', 2),
+('W', 'AAK', 'a@ga.cax', 2),
+('yt', 'jnyhbtgvf', 'dqsd@va.aa', 1),
+('yt', 'jnyhbtgvf', 'dqsd@va.aa', 1),
+('thgr', 'thbgfv', 'dasq@fqsd.aa', 1),
+('thgr', 'thbgfv', 'dasq@fqsd.aa', 1),
+('uhtygrt', 'yhtrgf', 'rgvfc@gmail.com', 1);
+
+--
+-- Déclencheurs `inscriptions`
+--
+DROP TRIGGER IF EXISTS `add_participation`;
+DELIMITER $$
+CREATE TRIGGER `add_participation` AFTER INSERT ON `inscriptions` FOR EACH ROW UPDATE activite
+SET nombre_participations = nombre_participations + 1
+WHERE activite.id_activite = NEW.id_activite
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `delete_participation`;
+DELIMITER $$
+CREATE TRIGGER `delete_participation` AFTER DELETE ON `inscriptions` FOR EACH ROW UPDATE activite
+SET nombre_participations = nombre_participations - 1
+WHERE activite.id_activite = OLD.id_activite
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
